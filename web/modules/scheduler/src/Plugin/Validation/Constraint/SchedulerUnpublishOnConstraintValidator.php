@@ -54,8 +54,8 @@ class SchedulerUnpublishOnConstraintValidator extends ConstraintValidator {
         ->addViolation();
     }
 
-    // If both dates are entered then the unpublish-on date must be later than
-    // the publish-on date.
+    If both dates are entered then the unpublish-on date must be later than
+    the publish-on date.
     if($publishing_enabled == 'TRUE'){
       if (!empty($publish_on) && !empty($unpublish_on) && $unpublish_on < $publish_on) {
         $this->context->buildViolation($constraint->messageUnpublishOnTooEarly)

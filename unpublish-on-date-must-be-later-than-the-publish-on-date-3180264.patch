@@ -1,0 +1,15 @@
+diff --git a/web/modules/scheduler/src/Plugin/Validation/Constraint/SchedulerUnpublishOnConstraintValidator.php b/web/modules/scheduler/src/Plugin/Validation/Constraint/SchedulerUnpublishOnConstraintValidator.php
+index 7d26b62..5a78a36 100644
+--- a/web/modules/scheduler/src/Plugin/Validation/Constraint/SchedulerUnpublishOnConstraintValidator.php
++++ b/web/modules/scheduler/src/Plugin/Validation/Constraint/SchedulerUnpublishOnConstraintValidator.php
+@@ -54,8 +54,8 @@ public function validate($entity, Constraint $constraint) {
+         ->addViolation();
+     }
+ 
+-    // If both dates are entered then the unpublish-on date must be later than
+-    // the publish-on date.
++    If both dates are entered then the unpublish-on date must be later than
++    the publish-on date.
+     if($publishing_enabled == 'TRUE'){
+       if (!empty($publish_on) && !empty($unpublish_on) && $unpublish_on < $publish_on) {
+         $this->context->buildViolation($constraint->messageUnpublishOnTooEarly)

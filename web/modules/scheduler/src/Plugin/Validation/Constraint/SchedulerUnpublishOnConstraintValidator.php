@@ -16,17 +16,17 @@ class SchedulerUnpublishOnConstraintValidator extends ConstraintValidator {
    * {@inheritdoc}
    */
   public function validate($entity, Constraint $constraint) {
-    // $config = \Drupal::config('scheduler.settings');
-    // /** @var \Drupal\node\NodeTypeInterface $type */
-    // $type = $entity->getEntity()->type->entity;
-    //
-    // $publishing_enabled = $type->getThirdPartySetting('scheduler', 'publish_enable', $config->get('default_publish_enable'));
-    // $unpublishing_enabled = $type->getThirdPartySetting('scheduler', 'unpublish_enable', $config->get('default_unpublish_enable'));
-    // $scheduler_unpublish_required = $entity->getEntity()->type->entity->getThirdPartySetting('scheduler', 'unpublish_required', $default_unpublish_required);
-    // $publish_on = $entity->getEntity()->publish_on->value;
-    // $unpublish_on = $entity->value;
-    // $status = $entity->getEntity()->status->value;
-    // $publish_status = $entity->getEntity()->publish_on;
+    $config = \Drupal::config('scheduler.settings');
+    /** @var \Drupal\node\NodeTypeInterface $type */
+    $type = $entity->getEntity()->type->entity;
+
+    $publishing_enabled = $type->getThirdPartySetting('scheduler', 'publish_enable', $config->get('default_publish_enable'));
+    $unpublishing_enabled = $type->getThirdPartySetting('scheduler', 'unpublish_enable', $config->get('default_unpublish_enable'));
+    $scheduler_unpublish_required = $entity->getEntity()->type->entity->getThirdPartySetting('scheduler', 'unpublish_required', $default_unpublish_required);
+    $publish_on = $entity->getEntity()->publish_on->value;
+    $unpublish_on = $entity->value;
+    $status = $entity->getEntity()->status->value;
+    $publish_status = $entity->getEntity()->publish_on;
 
     // When the 'required unpublishing' option is enabled the #required form
     // attribute cannot set in every case. However a value must be entered if
